@@ -787,7 +787,7 @@ Retrieve the version strings from the PCP provider and the TPM.
     UNREFERENCED_PARAMETER(argc);
     UNREFERENCED_PARAMETER(argv);
 
-    ZeroMemory(versionData, sizeof(versionData));
+    SecureZeroMemory(versionData, sizeof(versionData));
 
     if (FAILED(hr = HRESULT_FROM_NT(NCryptOpenStorageProvider(
                                         &hProvTpm,
@@ -9895,7 +9895,7 @@ PcpToolGetVscKeyAttestationFromKey(
     UIInfo.hwndParent = 0;
     UIInfo.pszCaptionText = szCaption;
 
-    ZeroMemory(&rsRequest, sizeof(READER_SEL_REQUEST));
+    SecureZeroMemory(&rsRequest, sizeof(READER_SEL_REQUEST));
 
     rsRequest.MatchType = RSR_MATCH_TYPE_ALL_CARDS;
     rsRequest.dwShareMode = SCARD_SHARE_SHARED;

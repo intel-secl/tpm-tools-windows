@@ -105,7 +105,7 @@ AllocateAndZero(
         hr = E_OUTOFMEMORY;
         goto Cleanup;
     }
-    ZeroMemory(*pptr, bufSize);
+    SecureZeroMemory(*pptr, bufSize);
 Cleanup:
     return hr;
 }
@@ -120,7 +120,7 @@ ZeroAndFree(
     {
         if(bufSize != 0)
         {
-            ZeroMemory(*pptr, bufSize);
+            SecureZeroMemory(*pptr, bufSize);
         }
         delete[] *pptr;
         *pptr = NULL;
